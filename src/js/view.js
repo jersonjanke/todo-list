@@ -1,4 +1,4 @@
-import {isEnabled} from './lib/feature';
+import {isEnabled, getParamFilter, getParamRenderBottom, getParamFilterTop} from './lib/feature';
 
 export function render(el, state) {
     const todoItems = state.todos.map(renderTodoItem).join('');
@@ -9,14 +9,45 @@ export function render(el, state) {
     );
 }
 
-function renderApp(input, filter, todoList) {
-    if(isEnabled('renderBottom')) {
-        return renderAddTodoAtBottom(input, todoList);
-    } else if(isEnabled('filter')) {
-        return renderAddTodoFilter(input, filter, todoList);
-    } else {
-        return renderAddTodoAtTop(input, todoList);
+function renderApp(input, filter, todoList) {    
+    /**
+     * Renderiza tela 1° Filtro 
+     *                2° Lista de tarefas
+     *                3° Input
+     */        
+    if((getParamRenderBottom() == 'renderBottom') && (getParamFilter() == 'filter')) {
+        if(getParamFilterTop() == 'filterTop') {
+            /**
+             * Passa filtro para o top caso filtro filterTop estive na url
+             */
+            return renderAddTodoFilter(filter, todoList, input);
+        } else {
+            return renderAddTodoFilter(todoList, filter, input);
+        }        
     }
+    /**
+     * Renderiza: 1° Input
+     *            2° Lista de tarefas
+     */
+    if(getParamRenderBottom() == 'renderBottom') {
+        return renderAddTodoAtBottom(input, todoList);
+    }
+
+    /**
+     * Renderiza: 1° Input
+     *            2° Filtro
+     *            3° Lista de tarefas
+     */
+    if(getParamFilter() == 'filter') {
+        return renderAddTodoFilter(input, filter, todoList);
+    }
+
+    /**
+     * Se não encontrar nenhum filtro na URL renderiza: 1° Input, 2° Lista de tarefas
+     */
+    if(!getParamFilter() && !getParamRenderBottom()) {
+        return renderAddTodoAtTop(input, todoList);
+    }     
 }
 
 function renderAddTodoFilter(input, filter, todoList) {
