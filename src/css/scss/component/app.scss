@@ -8,7 +8,7 @@ html, body, .todo {
 }
 
 .todo__input, .todo__item {
-    margin: 10px;
+    margin: 0px;
 }
 
 #addTodo {
@@ -17,7 +17,7 @@ html, body, .todo {
 
 
 .font-item {
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 .todo__item--done {
@@ -28,6 +28,12 @@ html, body, .todo {
     margin-left: 15px;
 }
 
-.filter {
-    margin-left: 9px;
+.label-filter {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.item-list {
+    font-weight: normal;
+    margin-left: 30px;
 }

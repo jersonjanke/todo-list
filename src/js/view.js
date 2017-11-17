@@ -92,22 +92,24 @@ function renderInput() {
     return `<div class="todo__input">
                 <div class="row">
                     <div class-"col-md-12">
-                        <label class="label-input">Add new item</label>
+                        <label class="label-input">Adicionar</label>
                     </div>
-                    <div class="col-md-10">
+                </div>
+                <div class="row">    
+                    <div class="col-md-6 col-sm-6">
                         <input class="form-control" type="text" id="todoInput">    
                     </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-success" id="addTodo">Add</button>
+                    <div class="col-md-4 col-sm-6">
+                        <button class="btn btn-success" id="addTodo">Adicionar</button>
                     </div>
                 </div>                                
             </div>`;
 }
 
 function renderFilter() {
-    return `<div class="row filter">
+    return `<div class="row">
                     <div col-md-12>
-                        <label>Filtro</label>
+                        <label class="label-filter">Filtro</label>
                     </div>
                     <div class="col-md-12 margin-bottom-10">                        
                         <label class="radio-inline">
@@ -130,15 +132,20 @@ function renderTodos(todoItems) {
 
 function renderTodoItem(todo) {
     const todoClass = `todo__item todo__item--${todo.done ? 'done' : 'open'}`;
-    return `<li class="${todoClass}">
+    return `<li>
+            <label class="${todoClass}">
+                <div class="checkbox item-list">                    
         <input class="js_toggle_todo" type="checkbox" data-id="${todo.id}"${todo.done ? ' checked' : ''}>
         ${todo.text}
+                </div>            
+            </label>                
     </li>`;
 }
 
 function getTitle() {
-    return `<div class="col-md-12">
-                <h3>Simple List</h3>                
-                <hr>
+    return `<div class="row">
+                <div class="col-md-12">
+                    <h3>Lista de tarefas</h3>                                
+                </div>
             </div>`;
 }
