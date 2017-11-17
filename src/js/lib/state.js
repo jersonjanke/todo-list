@@ -2,7 +2,7 @@ export function createStore(reducer, initial = {}) {
     const listeners = [];
     let state = initial;
     return {
-        dispatch(change) {
+        dispatch(change) {            
             state = reducer(state, change) || state;
             for(let listener of listeners) {
                 listener(state);
@@ -13,7 +13,7 @@ export function createStore(reducer, initial = {}) {
             return state;
         },
 
-        subscribe(listener) {
+        subscribe(listener) {      
             listeners.push(listener);
         }
     };

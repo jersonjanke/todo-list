@@ -18,3 +18,7 @@ html, body, .todo {
 #addTodo {
     margin-left: 10px;
 }
+
+.display-none {
+    display: none;
+}
