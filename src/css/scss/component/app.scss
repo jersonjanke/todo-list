@@ -1,0 +1,33 @@
+html, body, .todo {
+    margin: 0;
+    padding: 0;
+}
+
+.todo {
+    list-style-type: none;
+}
+
+.todo__input, .todo__item {
+    margin: 10px;
+}
+
+#addTodo {
+    margin-left: 10px;
+}
+
+
+.font-item {
+    font-size: 1.4em;
+}
+
+.todo__item--done {
+    text-decoration: line-through;
+}
+
+.label-input {
+    margin-left: 15px;
+}
+
+.filter {
+    margin-left: 9px;
+}

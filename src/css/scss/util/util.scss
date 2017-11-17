@@ -1,0 +1,29 @@
+$margin-10: 10px;
+
+.no-margin {
+    margin: none;
+}
+
+.margin-10 {
+    margin: $margin-10;
+}
+
+.margin-bottom-10 {
+    margin-bottom: $margin-10;
+}
+
+.margin-top {
+    margin-top: $margin-10;
+}
+
+.margin-left {
+    margin-left: $margin-10;
+}
+
+.margin-right {
+    margin-right: $margin-10;
+}
+
+.display-none {
+    display: none;
+}

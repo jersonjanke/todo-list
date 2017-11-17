@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/scss/main.scss';
 
 import {todos} from './state';
 import {render} from './view';
