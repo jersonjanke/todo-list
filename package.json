@@ -24,6 +24,7 @@
     "webpack": "^1.15.0"
   },
   "devDependencies": {
-    "extract-text-webpack-plugin": "^1.0.1"
+    "extract-text-webpack-plugin": "^1.0.1",    
+    "uglifyjs-webpack-plugin": "^1.0.1"
   }
 }
