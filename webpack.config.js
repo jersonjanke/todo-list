@@ -6,7 +6,7 @@ var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     //entry: ['babel-polyfill', path.normalize(__dirname + '/src/js/main')],
-    entry: ['./src/js/app.jsx'],
+    entry: ['./src/js/app'],
     devtool: 'cheap-module-source-map',
     output: {
         filename: 'bundle.js',
