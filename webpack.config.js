@@ -5,7 +5,8 @@ var extractCSS = new ExtractTextPlugin('css/[name].css');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    entry: ['babel-polyfill', path.normalize(__dirname + '/src/js/main')],
+    //entry: ['babel-polyfill', path.normalize(__dirname + '/src/js/main')],
+    entry: ['./src/js/app.jsx'],
     devtool: 'cheap-module-source-map',
     output: {
         filename: 'bundle.js',
@@ -25,6 +26,14 @@ module.exports = {
             {
                 test: /\.scss$/i, 
                 loader: extractCSS.extract(['css','sass'])
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader',
+                query: {
+                  presets: ['react', 'es2015']
+                }
             },
         ]        
             },
